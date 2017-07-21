@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mobile</title>
+    <link rel="stylesheet" href="rem-demo.css">
+    <script>
+        //算出dpr缩放比
+        var scale=1/window.devicePixelRatio  //算出px缩放比
+        document.write(`
+            <meta name="viewport" content="maximum-scale=${scale},minimum-scale=${scale},initial-scale=${scale},user-scalable=no">
+        `)
+        //算出动态html font-size
+        var pageWidth=document.documentElement.clientWidth; 
+        var content='html{font-size:'+pageWidth/10+'px}'   //10rem=页面宽度   320px=10rem,1rem=32px 除以10是为了便于计算，也可以不
+                                                           //除，但不能除以100，否则会导致字体大小设置过小
+        var style=document.createElement('style')
+        style.innerHTML=content
+        document.head.appendChild(style) 
+    </script>
+
+</head>
+<body>
+    <div class="header">我是头部</div>
+    <div class="content">
+        <div class="box1">内容1</div>
+        <div class="box2">内容2</div>
+    </div>
+    <script>
+        
+    </script>
+</body>
+</html>

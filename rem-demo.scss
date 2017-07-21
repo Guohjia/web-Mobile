@@ -1,0 +1,27 @@
+    @function px2rem($px){
+        $rem : 75px;  //iphone6的标准基准值由于其dpr为2,原来的37.5px变成75px
+        @return ($px/$rem) + rem; //相对于1dpr,2dpr的iphone6整体内容缩小了，因此需要加上1rem;
+    }    
+    body{
+         margin:0;
+         font-size:px2rem(8px)
+     }
+     .header{
+         height:px2rem(100px);
+         width: px2rem(600px);
+         /* border:1px solid blue; */
+         margin: 0 auto;
+         background: blue;
+         border-bottom: 1px solid red;
+     }
+    .content{
+        display: flex;
+        /* border:1px solid; */
+        justify-content: center;
+        .box1,.box2{
+            width:px2rem(100px);
+            height:px2rem(100px);
+            /* border:1px solid red; */
+            background:green;
+        } 
+   }
